@@ -14,7 +14,7 @@
 5. Claude never writes a finding or verdict as confirmed unless Karl reviewed it together with Claude.
 
 ## Earlier notes (NOT confirmed by Karl yet)
-These come from earlier analysis with scripts only. So far only `deleteDuplicateRows.gs` was run (test in progress). Treat all of it as INTERPRETATION until reviewed together.
+These come from earlier analysis with scripts only. So far only `deleteDuplicateRows.gs` was run (tested). Treat all of it as INTERPRETATION until reviewed together.
 - **Main working script:** `legacy-source/baseDeDatosCoinmarketCap/pruebaBeforeProduction.gs` (540 lines, FACT counted by script; the old number 489 was wrong). Script last edited Dec 2021. It still runs (checked Sep 2026).
 - `prueba` project = sandbox. Files with `Math.random()` are test versions of the API code.
 - Big files: `ChangesAPIColourbc.gs` (random test) and `ValuesChangebc.gs` (real API) share most of their code.
@@ -38,7 +38,7 @@ These come from earlier analysis with scripts only. So far only `deleteDuplicate
 | # | Task | Status |
 |---|------|--------|
 | 1 | Inventory: size and type of every `.gs` file (17 files) (LIBRARY / SCRIPT / INACTIVE) | DONE 2026-09-29 21:19. Result: `analysis/file-inventory-claude.md` (17 files, smallest first, Type column still TBD) |
-| 2 | Decide the Type (LIBRARY / SCRIPT / INACTIVE) of each file with Karl, one at a time, in inventory order (file 1 = `deleteDuplicateRows.gs`). Then LIBRARY files: test their functions in a new Google Sheet, smallest first. Log in `catalog/function-catalog.md`. For each function tested: write a refactored version in `refactored/<file>.gs`. The comment at the top of that file says what was wrong in the old function and why it was changed. | IN PROGRESS (Types decided: 0 of 17; file 1: original tested, refactored version being tested) |
+| 2 | Decide the Type (LIBRARY / SCRIPT / INACTIVE) of each file with Karl, one at a time, in inventory order (file 1 = `deleteDuplicateRows.gs`). Then LIBRARY files: test their functions in a new Google Sheet, smallest first. Log in `catalog/function-catalog.md`. For each function tested: write a refactored version in `refactored/<file>.gs`. The comment at the top of that file says what was wrong in the old function and why it was changed. | IN PROGRESS (Types decided: 0 of 17; file 1: function tested, verdict KEEP, refactored version saved; Type still to decide). |
 | 3 | Big SCRIPT files: run a line-by-line comparison A vs B, review the line map, decide COPY / EVOLUTION / DIFFERENT | TODO |
 | 4 | Read `pruebaBeforeProduction.gs` function by function (it is the version known to work), then rebuild it clean in `refactored/` and compare the result with the original | TODO |
 | 5 | Check which API keys work | TODO |
@@ -60,8 +60,11 @@ Add the path, for example `START-HERE.md` or `catalog/function-catalog.md`.
 Paste the full links in your message. Some AIs can only open links that appear in the message.
 
 ## Log (add one line per session)
-- 2026-09-29 21:00: Task 1 done (commit 4aa2c54). Next: Type of file 1.
-- 2026-09-29 (night): File 1 original tested in a copy of the Sheet. Refactored version written, test pending.
+## Log (one START line and one END line per task)
+- 2026-09-29 unknown START task 1 (inventory)
+- 2026-09-29 21:19 END task 1 (inventory of 17 files done)
+- 2026-09-29 21:20 START file 1 (deleteDuplicateRows.gs)
+- 2026-09-30 13:46 END file 1 (refactored test passed, verdict KEEP, refactored version saved in refactored/, catalog entry added)
 
 ## Review order (one file at a time, Type decided by Karl + orchestrator)
 Same order as analysis/file-inventory-claude.md (smallest first):
@@ -71,4 +74,4 @@ Progress: 0 of 17 have a Type.
 ## Open items from inventory
 - pruebaBeforeProduction.gs = 540 lines (FACT), earlier note said 489.
 - ChangesAPIColourbc.gs: only 1 function found, unexplained.
-- deleteDuplicateRows.gs, function `removeDuplicates()`: original works on the OPEN tab (`getActiveSheet()`, FACT, tested). It also treats rows as equal when cells contain commas (`join()`, FACT, tested with `a,b | c` vs `a | b,c`). Refactored version fixes both (HYPOTHESIS until tested).
+- deleteDuplicateRows.gs, function `removeDuplicates()`: original works on the OPEN tab (`getActiveSheet()`, FACT, tested). It also treats rows as equal when cells contain commas (`join()`, FACT, tested with `a,b | c` vs `a | b,c`). - deleteDuplicateRows.gs: done. See catalog/function-catalog.md.
