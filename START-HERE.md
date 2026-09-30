@@ -59,7 +59,6 @@ Base: `https://raw.githubusercontent.com/KarlKrieger1/crypto-legacy-research/mai
 Add the path, for example `START-HERE.md` or `catalog/function-catalog.md`.
 Paste the full links in your message. Some AIs can only open links that appear in the message.
 
-## Log (add one line per session)
 ## Log (one START line and one END line per task)
 - 2026-09-29 unknown START task 1 (inventory)
 - 2026-09-29 21:19 END task 1 (inventory of 17 files done)
@@ -74,4 +73,5 @@ Progress: 0 of 17 have a Type.
 ## Open items from inventory
 - pruebaBeforeProduction.gs = 540 lines (FACT), earlier note said 489.
 - ChangesAPIColourbc.gs: only 1 function found, unexplained.
-- deleteDuplicateRows.gs, function `removeDuplicates()`: original works on the OPEN tab (`getActiveSheet()`, FACT, tested). It also treats rows as equal when cells contain commas (`join()`, FACT, tested with `a,b | c` vs `a | b,c`). - deleteDuplicateRows.gs: done. See catalog/function-catalog.md.
+- deleteDuplicateRows.gs, `removeDuplicates()`: the original works on the OPEN tab (`getActiveSheet()`, FACT, tested). It treats rows as equal when cells contain commas (`join()`, FACT, tested with `a,b | c` vs `a | b,c`).
+- deleteDuplicateRows.gs: done. See `catalog/function-catalog.md`.

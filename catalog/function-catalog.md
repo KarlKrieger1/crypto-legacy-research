@@ -19,7 +19,7 @@ and it was tested in a new Google Sheet. Nothing is added by AIs alone.
 ## Reviewed functions
 
 ### removeDuplicates()  (prueba/deleteDuplicateRows.gs)
-- Verdict: KEEP (decided by Karl, 2026-09-30 [TIME]). The idea is needed; the code is rewritten.
+- Verdict: KEEP (decided by Karl, 2026-09-30 [13:46]). The idea is needed; the code is rewritten.
 - What it does (FACT, tested): removes duplicate rows from a sheet, keeps the first copy, keeps the order and the header.
 - Sheets / ranges / services used: SpreadsheetApp, the active tab, all the data range (getDataRange, getValues, clearContents, setValues).
 - Calls / called by: not checked yet.
