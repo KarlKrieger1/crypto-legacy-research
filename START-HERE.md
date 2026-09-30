@@ -3,6 +3,7 @@
 ## Goal
 - **Phase 1 (now):** understand what the 2021 Google Apps Script system did, function by function.
 - **Phase 2 (later):** build a new crypto trading bot.
+- **Main output of Phase 1:** clean refactored functions (good practice), saved in `refactored/`. The old 2021 functions are only for understanding the system. We do not reuse them, because they were not written with good practice. The final aim is to rebuild `pruebaBeforeProduction.gs` function by function, run it, and get the same or a better result.
 - Not the goal: more documents, more rules, more detail than needed.
 
 ## Rules (only 5)
@@ -37,16 +38,19 @@ These come from earlier analysis with scripts only. Nobody has run the functions
 | # | Task | Status |
 |---|------|--------|
 | 1 | Inventory: size and type of every `.gs` file (17 files) (LIBRARY / SCRIPT / INACTIVE) | DONE 2026-09-29 HH:MM. Result: `analysis/file-inventory-claude.md` (17 files, smallest first, Type column still TBD) |
-| 2 | Decide the Type (LIBRARY / SCRIPT / INACTIVE) of each file with Karl, one at a time, in inventory order (file 1 = `deleteDuplicateRows.gs`). Then LIBRARY files: test their functions in a new Google Sheet, smallest first. Log in `catalog/function-catalog.md` | IN PROGRESS (Types decided: 0 of 17) |
+| 2 | Decide the Type (LIBRARY / SCRIPT / INACTIVE) of each file with Karl, one at a time, in inventory order (file 1 = `deleteDuplicateRows.gs`). Then LIBRARY files: test their functions in a new Google Sheet, smallest first. Log in `catalog/function-catalog.md`. For each function tested: write a refactored version in `refactored/<file>.gs`. The comment at the top of that file says what was wrong in the old function and why it was changed. | IN PROGRESS (Types decided: 0 of 17) |
 | 3 | Big SCRIPT files: run a line-by-line comparison A vs B, review the line map, decide COPY / EVOLUTION / DIFFERENT | TODO |
-| 4 | Read `pruebaBeforeProduction.gs` function by function (it is the version known to work) | TODO |
+| 4 | Read `pruebaBeforeProduction.gs` function by function (it is the version known to work), then rebuild it clean in `refactored/` and compare the result with the original | TODO |
 | 5 | Check which API keys work | TODO |
 | 6 | Decide: keep CoinMarketCap or look for another source | TODO |
 | 7 | Trading research (what to analyze) | LATER |
 
 **Order = file size (smallest first), decided by the inventory table `analysis/file-inventory-claude.md`, not by hand.**
+**Verdict note:** KEEP means the idea is needed in the new system. We rewrite it. We do not copy the old code.
 
 **Tools:** the Python tools are kept on Karl's PC only (not in GitHub). Their reports are saved in `analysis/`. Roles: any AI can be the orchestrator (preferred: Claude). The orchestrator reads the repo and gives instructions, and writes no code. A second AI (preferred: Claude) is the worker and writes and runs the scripts. If Claude runs out of tokens, Karl continues with another AI (Gemini or ChatGPT) in the same roles.
+
+Expert profile for any AI: act as a senior Google Apps Script developer who also applies clean-code practices. Explain to a beginner in simple English, and do not conclude before testing in a Google Sheet. (Phase 2 only: crypto trading systems engineer.)
 
 **Karl's tip (HYPOTHESIS, not verified):** files with `Math.random()` are the base of the files that have API-key fields. Compare each random version with its API version first.
 
