@@ -36,17 +36,17 @@ These come from earlier analysis with scripts only. Nobody has run the functions
 ## Plan
 | # | Task | Status |
 |---|------|--------|
-| 1 | Inventory: size and type of every `.gs` file (17 files) (LIBRARY / SCRIPT / INACTIVE) | TODO |
-| 2 | LIBRARY files: test their functions in a new Google Sheet, smallest file first. Log in `catalog/function-catalog.md` | TODO |
+| 1 | Inventory: size and type of every `.gs` file (17 files) (LIBRARY / SCRIPT / INACTIVE) | DONE 2026-09-29 HH:MM. Result: `analysis/file-inventory-claude.md` (17 files, smallest first, Type column still TBD) |
+| 2 | Decide the Type (LIBRARY / SCRIPT / INACTIVE) of each file with Karl, one at a time, in inventory order (file 1 = `deleteDuplicateRows.gs`). Then LIBRARY files: test their functions in a new Google Sheet, smallest first. Log in `catalog/function-catalog.md` | IN PROGRESS (Types decided: 0 of 17) |
 | 3 | Big SCRIPT files: run a line-by-line comparison A vs B, review the line map, decide COPY / EVOLUTION / DIFFERENT | TODO |
 | 4 | Read `pruebaBeforeProduction.gs` function by function (it is the version known to work) | TODO |
 | 5 | Check which API keys work | TODO |
 | 6 | Decide: keep CoinMarketCap or look for another source | TODO |
 | 7 | Trading research (what to analyze) | LATER |
 
-**Order = file size (smallest first), decided by the inventory table, not by hand.**
+**Order = file size (smallest first), decided by the inventory table `analysis/file-inventory-claude.md`, not by hand.**
 
-**Tools:** the Python tools are kept on Karl's PC only (not in GitHub). Their reports are saved in `analysis/`.
+**Tools:** the Python tools are kept on Karl's PC only (not in GitHub). Their reports are saved in `analysis/`. Roles: any AI can be the orchestrator (preferred: Claude). The orchestrator reads the repo and gives instructions, and writes no code. A second AI (preferred: Claude) is the worker and writes and runs the scripts. If Claude runs out of tokens, Karl continues with another AI (Gemini or ChatGPT) in the same roles.
 
 **Karl's tip (HYPOTHESIS, not verified):** files with `Math.random()` are the base of the files that have API-key fields. Compare each random version with its API version first.
 
@@ -56,7 +56,7 @@ Add the path, for example `START-HERE.md` or `catalog/function-catalog.md`.
 Paste the full links in your message. Some AIs can only open links that appear in the message.
 
 ## Log (add one line per session)
-- 2026-09-29: Lean plan created. Next: file inventory (17 files) by size and type.
+- 2026-09-29 19:00: Task 1 done (commit 4aa2c54). Next: Type of file 1.
 
 ## Review order (one file at a time, Type decided by Karl + orchestrator)
 Same order as analysis/file-inventory-claude.md (smallest first):
