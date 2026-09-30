@@ -38,7 +38,7 @@ These come from earlier analysis with scripts only. So far only `deleteDuplicate
 | # | Task | Status |
 |---|------|--------|
 | 1 | Inventory: size and type of every `.gs` file (17 files) (LIBRARY / SCRIPT / INACTIVE) | DONE 2026-09-29 21:19. Result: `analysis/file-inventory-claude.md` (17 files, smallest first, Type column still TBD) |
-| 2 | Decide the Type (LIBRARY / SCRIPT / INACTIVE) of each file with Karl, one at a time, in inventory order (file 1 = `deleteDuplicateRows.gs`). Then LIBRARY files: test their functions in a new Google Sheet, smallest first. Log in `catalog/function-catalog.md`. For each function tested: write a refactored version in `refactored/<file>.gs`. The comment at the top of that file says what was wrong in the old function and why it was changed. | IN PROGRESS (Types decided: 0 of 17; file 1: function tested, verdict KEEP, refactored version saved; Type still to decide). |
+| 2 | Decide the Type (LIBRARY / SCRIPT / INACTIVE) of each file with Karl, one at a time, in inventory order. Test the .gs files in a new Google Sheet, smallest first. Log in `catalog/function-catalog.md`. For each file.gs tested: write a refactored version in `refactored/<file>.gs`. The comment at the top of that file says what was wrong in the old function and why it was changed. | IN PROGRESS (files done: 2 of 17)  |
 | 3 | Big SCRIPT files: run a line-by-line comparison A vs B, review the line map, decide COPY / EVOLUTION / DIFFERENT | TODO |
 | 4 | Read `pruebaBeforeProduction.gs` function by function (it is the version known to work), then rebuild it clean in `refactored/` and compare the result with the original | TODO |
 | 5 | Check which API keys work | TODO |
@@ -64,6 +64,8 @@ Paste the full links in your message. Some AIs can only open links that appear i
 - 2026-09-29 21:19 END task 1 (inventory of 17 files done)
 - 2026-09-29 21:20 START file 1 (deleteDuplicateRows.gs)
 - 2026-09-30 13:46 END file 1 (refactored test passed, verdict KEEP, refactored version saved in refactored/, catalog entry added)
+- 2026-09-30 17:01 START file 2 (sortColumns.gs)
+- 2026-09-30 17:21 END file 2 (refactored test passed, verdict KEEP, Type LIBRARY, refactored version saved in refactored/, catalog entry added)
 
 ## Review order (one file at a time, Type decided by Karl + orchestrator)
 Same order as analysis/file-inventory-claude.md (smallest first):
@@ -75,3 +77,4 @@ Progress: 0 of 17 have a Type.
 - ChangesAPIColourbc.gs: only 1 function found, unexplained.
 - deleteDuplicateRows.gs, `removeDuplicates()`: the original works on the OPEN tab (`getActiveSheet()`, FACT, tested). It treats rows as equal when cells contain commas (`join()`, FACT, tested with `a,b | c` vs `a | b,c`).
 - deleteDuplicateRows.gs: done. See `catalog/function-catalog.md`.
+- sortColumns.gs, `sortSheet()`: done. The original sorts only the first 7 rows, and the usage is unknown (the tab `sortColumn` was empty, reported by Karl). See `catalog/function-catalog.md`.
