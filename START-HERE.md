@@ -57,3 +57,18 @@ Paste the full links in your message. Some AIs can only open links that appear i
 
 ## Log (add one line per session)
 - 2026-09-29: Lean plan created. Next: file inventory (17 files) by size and type.
+
+## Review order (one file at a time, Type decided by Karl + orchestrator)
+Same order as analysis/file-inventory-claude.md (smallest first):
+1 deleteDuplicateRows, 2 sortColumns, 3 findAssetsbc, 4 eliminarRepetidos, 5 codebc, 6 Codigo, 7 buscarRepetidos, 8 findIDS, 9 combinationFiltered, 10 findInABounches, 11 changeFormatOfAcellbc, 12 sortChangesbc, 13 ValuesChangebc, 14 proofOfCrypto, 15 backupCode, 16 pruebaBeforeProduction, 17 ChangesAPIColourbc
+Progress: 0 of 17 have a Type.
+
+## Roles
+- Orchestrator Claude: reads repo by raw link, gives instructions, writes no code (saves tokens).
+- Worker Claude: writes/runs scripts (on Karl's PC only), saves results in analysis/.
+- Karl: runs the git commits, pastes raw links in his own message.
+
+## Open items from inventory
+- pruebaBeforeProduction.gs = 540 lines (FACT), earlier note said 489.
+- ChangesAPIColourbc.gs: only 1 function found, unexplained.
+- 2026-09-29: Task 1 done (commit 4aa2c54). Next: Type of file 1.
