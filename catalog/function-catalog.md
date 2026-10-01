@@ -35,3 +35,17 @@ and it was tested in a new Google Sheet. Nothing is added by AIs alone.
 - Test done in new Google Sheet: yes
 - Test result (FACT): original sorted rows 1-7 as expected and left rows 8-9 alone. Refactored `sortSheetByColumn(sheet, 5, false, 1)` gave the same order on the same data, with the header in row 1.
 - Notes / risks: the original ignores data below row 7. Can go after duplicate removal (Karl, INTERPRETATION). Refactored version: `refactored/sortColumns.gs`.
+### findToCompare()  (prueba/findAssetsbc.gs)
+- Verdict: KEEP (Karl, 2026-10-01 12:42).
+- What it does (FACT, tested): for each coin in `supuestaCompra` (column C), it finds the coin in `cryptoVolatility` (column A). It writes the new price in column D and the change (New - Old) / Old in column E, with the old price from column B. The color goes on column E: green if above 0, red otherwise. Coins not found stay unchanged.
+- Tabs: `supuestaCompra`, `cryptoVolatility`.
+- Test (FACT): the original and the refactored `compareToPrices(purchaseSheet, pricesSheet)` gave the same result.
+- Refactored: `refactored/findAssetsbc.gs`.
+### findToCompare()  (prueba/findAssetsbc.gs)
+- Verdict: KEEP (Karl, 2026-10-01 12:42)
+- What it does (FACT, from reading the code together): for each coin in `supuestaCompra` (column C), finds it in `cryptoVolatility` (column A). Writes the new price in column D and the change (New - Old) / Old in column E, colored green if above 0, red otherwise. Coins not found stay unchanged.
+- Sheets / ranges / services used: SpreadsheetApp; tabs `supuestaCompra` (B old price, C coin, D, E) and `cryptoVolatility` (A coin, B new price)
+- Calls / called by: unknown yet (fill when we read the bigger files)
+- Test done in new Google Sheet: yes
+- Test result (what we saw): the original and the refactored `compareToPrices(purchaseSheet, pricesSheet)` gave the same result
+- Notes / risks: the same logic may exist in `pruebaBeforeProduction.gs` (said by Karl, to check). Refactored: `refactored/findAssetsbc.gs`

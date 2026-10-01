@@ -7,7 +7,7 @@ Type column is TBD: LIBRARY / SCRIPT / INACTIVE is decided together, not by scri
 |---|---|---|---|---|---|---|---|---|---|---|
 | 1 | prueba/deleteDuplicateRows.gs | 935 | 34 | 34 | 22 | 9 | 1 | 0 | 0 | LIBRARY |
 | 2 | ParesDeCryptosExchanges/sortColumns.gs | 1747 | 46 | 45 | 12 | 23 | 1 | 0 | 0 | LIBRARY |
-| 3 | prueba/findAssetsbc.gs | 2100 | 50 | 50 | 37 | 8 | 1 | 0 | 0 | TBD |
+| 3 | prueba/findAssetsbc.gs | 2100 | 50 | 50 | 37 | 8 | 1 | 0 | 0 | LIBRARY |
 | 4 | ParesDeCryptosExchanges/eliminarRepetidos.gs | 2240 | 51 | 51 | 34 | 9 | 1 | 0 | 0 | TBD |
 | 5 | prueba/codebc.gs | 2406 | 52 | 51 | 19 | 21 | 1 | 0 | 0 | TBD |
 | 6 | prueba/Codigo.gs | 2456 | 58 | 57 | 39 | 13 | 6 | 0 | 0 | TBD |

@@ -38,7 +38,7 @@ These come from earlier analysis with scripts only. So far only `deleteDuplicate
 | # | Task | Status |
 |---|------|--------|
 | 1 | Inventory: size and type of every `.gs` file (17 files) (LIBRARY / SCRIPT / INACTIVE) | DONE 2026-09-29 21:19. Result: `analysis/file-inventory-claude.md` (17 files, smallest first, Type column still TBD) |
-| 2 | Decide the Type (LIBRARY / SCRIPT / INACTIVE) of each file with Karl, one at a time, in inventory order. Test the .gs files in a new Google Sheet, smallest first. Log in `catalog/function-catalog.md`. For each file.gs tested: write a refactored version in `refactored/<file>.gs`. The comment at the top of that file says what was wrong in the old function and why it was changed. | IN PROGRESS (files done: 2 of 17)  |
+| 2 | Decide the Type (LIBRARY / SCRIPT / INACTIVE) of each file with Karl, one at a time, in inventory order. Test the .gs files in a new Google Sheet, smallest first. Log in `catalog/function-catalog.md`. For each file.gs tested: write a refactored version in `refactored/<file>.gs`. The comment at the top of that file says what was wrong in the old function and why it was changed. | IN PROGRESS (files done: 3 of 17)  |
 | 3 | Big SCRIPT files: run a line-by-line comparison A vs B, review the line map, decide COPY / EVOLUTION / DIFFERENT | TODO |
 | 4 | Read `pruebaBeforeProduction.gs` function by function (it is the version known to work), then rebuild it clean in `refactored/` and compare the result with the original | TODO |
 | 5 | Check which API keys work | TODO |
@@ -55,9 +55,10 @@ Expert profile for any AI: act as a senior Google Apps Script developer who also
 **Karl's tip (HYPOTHESIS, not verified):** files with `Math.random()` are the base of the files that have API-key fields. Compare each random version with its API version first.
 
 ## Raw links (for AI chats that cannot open GitHub pages)
-Base: `https://raw.githubusercontent.com/KarlKrieger1/crypto-legacy-research/main/`
-Add the path, for example `START-HERE.md` or `catalog/function-catalog.md`.
-Paste the full links in your message. Some AIs can only open links that appear in the message.
+- Base: `https://raw.githubusercontent.com/KarlKrieger1/crypto-legacy-research/main/`
+- Add the path, for example `START-HERE.md` or `catalog/function-catalog.md`.
+- Paste the full links in your message. Some AIs can only open links that appear in the message.
+- Version of the link: add ?v=MMDD-HHMM with the real date and time (example: ?v=0930-1805). It is always new, so the cache never returns old content. No number to remember.
 
 ## Log (one START line and one END line per task)
 - 2026-09-29 unknown START task 1 (inventory)
@@ -66,11 +67,12 @@ Paste the full links in your message. Some AIs can only open links that appear i
 - 2026-09-30 13:46 END file 1 (refactored test passed, verdict KEEP, refactored version saved in refactored/, catalog entry added)
 - 2026-09-30 17:01 START file 2 (sortColumns.gs)
 - 2026-09-30 17:21 END file 2 (refactored test passed, verdict KEEP, Type LIBRARY, refactored version saved in refactored/, catalog entry added)
+- 2026-10-01 11:25 START file 3 (prueba/findAssetsbc.gs)
+- 2026-10-01 12:42 END file 3 (refactored test passed, verdict KEEP, Type LIBRARY, refactored version saved in refactored/, catalog entry added)
 
 ## Review order (one file at a time, Type decided by Karl + orchestrator)
 Same order as analysis/file-inventory-claude.md (smallest first):
 1 deleteDuplicateRows, 2 sortColumns, 3 findAssetsbc, 4 eliminarRepetidos, 5 codebc, 6 Codigo, 7 buscarRepetidos, 8 findIDS, 9 combinationFiltered, 10 findInABounches, 11 changeFormatOfAcellbc, 12 sortChangesbc, 13 ValuesChangebc, 14 proofOfCrypto, 15 backupCode, 16 pruebaBeforeProduction, 17 ChangesAPIColourbc
-Progress: 0 of 17 have a Type.
 
 ## Open items from inventory
 - pruebaBeforeProduction.gs = 540 lines (FACT), earlier note said 489.
@@ -78,3 +80,4 @@ Progress: 0 of 17 have a Type.
 - deleteDuplicateRows.gs, `removeDuplicates()`: the original works on the OPEN tab (`getActiveSheet()`, FACT, tested). It treats rows as equal when cells contain commas (`join()`, FACT, tested with `a,b | c` vs `a | b,c`).
 - deleteDuplicateRows.gs: done. See `catalog/function-catalog.md`.
 - sortColumns.gs, `sortSheet()`: done. The original sorts only the first 7 rows, and the usage is unknown (the tab `sortColumn` was empty, reported by Karl). See `catalog/function-catalog.md`.
+- prueba/findAssetsbc.gs, `findToCompare()`: done. Not tested: the old code processes row 1 as data. Check when reading `pruebaBeforeProduction.gs` whether the same logic is there (said by Karl, not checked). See `catalog/function-catalog.md`.
